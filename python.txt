@@ -1,0 +1,546 @@
+- declaración de variable - determina un espacio para el desarrollo de una identidad para su ciclo de vida 
+- revisión de tipo - determina segun su forma el espacio a usar para la variable
+- revisión de tamaño - determia la cantidad de espacios de la variable
+- comentario
+    - una línea
+    - múltiples líneas
+- Tipos de Datos
+    - Primitivos
+        - Boolean -Se utiliza para representar valores de verdad en la lógica. 
+            Solamente puede tener dos valores: True o False 
+            (Nota que ponemos la T y la F en mayúsculas).
+        - Numerales - Aquí podemos tener números enteros, de punto flotante 
+            (también conocidos como números decimales) o complejos. 
+        - Strings (Cadenas)- También conocidas como cadenas, 
+            se refiere a textos o cadenas de caracteres.
+        - Char (ascii)
+    - Compuestos - siempre el primer valor es "0"
+        - Listas - agrupan varios tipos de datos -Tipo de datos mutable 
+            (que puede cambiar) y contiene un conjunto de distintos valores. 
+            Suele utilizarse para almacenar información relacionada.
+            - inicialización
+            - accesar valor
+            - cambiar valor
+            - agregar valor
+            - borrar valor
+        - Tuplas -agrupar un tipo de Datos -Tipo de datos inmutable 
+            (que no se puede modificar) y contiene un conjunto de distintos valores. 
+            Pueden contener distintos tipos de datos
+            - inicialización
+            - accesar valor
+            - cambiar valor
+            - agregar valor
+            - borrar valor
+        - Diccionarios - agrupan propiedades de los datos -Nos permite almacenar 
+            contenido a través de una llave y un valor. Podemos acceder a sus datos a 
+            través de su índice único (que en este caso llamaremos llave o clave).
+            Encuentra algunos métodos integrados de los diccionarios aquí.
+            - inicialización
+            - accesar valor
+            - cambiar valor
+            - agregar valor
+            - borrar valor
+- condicional
+    - if
+    - else if
+    - else
+- bucle for
+    - inicio
+    - fin
+    - incremento
+    - break
+    - continue
+- bucle while
+    - inicio
+    - fin
+    - incremento
+- función
+    - parámetro
+    - argumento
+    - return
+- Numeros (https://docs.python.org/3/library/random.html)
+    -int: números enteros, positivos o negativos. Por ejemplo: 156
+    -float: números con punto flotante o decimales, positivos o negativos. 
+        Por ejemplo: 3.1416
+    -Complejos (complex): pertenecen al conjunto de números reales y son comúnmente 
+        identificados con la letra j. Por ejemplo: 2+5j. 
+    -Conversiones - Para realizar la conversion se debe llamar con el Print
+        entero_a_decimal = float(123)
+        decimal_a_entero = int(22.5)
+        entero_a_complejo = complex(35)
+    -Número aleatorio
+        import random
+        num_aleatorio = random.randint(5, 10) #Genera un número aleatorio entre 5 y 10
+        print(num_aleatorio) #Imprime el número aleatorio generado
+-Strings/Cadenas
+    Cadena literal -Las cadenas son secuencias de caracteres, pueden incluir letras, 
+    números, símbolos, y se colocan entre comillas simples o dobles
+        -print("Esta es una cadenas de caracteres.")
+    Concatenar cadenas y variables con la función print - 
+        - print() agregue un espacio entre los elementos separados por comas
+            nombre = "Marcelo"
+                print("Me llamo", nombre)
+        -Otra manera es concatenando el contenido con la ayuda de +.
+            nombre = "Marcelo"
+                print("Me llamo" + nombre)
+        -Entonces es necesario convertir el número a cadena para poder “sumar” ambos valores.
+            print("¿Cuántas vocales hay? " + 5) # ERROR: TypeError: can only concatenate str (not "int") to str
+            print("¿Cuántas vocales hay? " + str(5)) #Imprime: ¿Cuántas vocales hay? 5
+        -Podemos hacer la conversión también de cadena a número, por ejemplo:
+            tiempo_preparacion = 1
+            tiempo_horneado = "2"(lo que esta en comillas siempre sera texto y en ocaciones este debe ser transformado para ser ejcutado)
+            tiempo_total = tiempo_preparacion + tiempo_horneado # ERROR: TypeError: unsupported operand type(s) for +: 'int' and 'str'
+            tiempo_total = tiempo_preparacion + int(tiempo_horneado) # Imprime: 3
+        -Cadenas “f” (Interpolación de cadenas literal)
+                nombre = "Marcelo"
+                edad = 29
+                print(f"Mi nombre es {nombre} y tengo {edad} años de edad.")
+        -string.format()  Para usar este método, escribimos la cadena completa y 
+            colocamos llaves ({}) en los espacios en los que queremos desplegar el 
+            valor de la variable. Después invocamos al método format y pasamos las 
+            variables como argumentos en el orden que debieran llenarse los parámetros{}
+                nombre = "Marcelo"
+                edad = 29
+                print("Mi nombre es {} y tengo {} años de edad.".format(nombre, edad)) # Imprime: Mi nombre es Marcelo y tengo 29 años de edad.
+                print("Tengo {} años de edad y mi nombre es {}".format(edad, nombre)) # Imprime: Tengo 29 años de edad y mi nombre es Marcelo
+        -%-formatting %s para indicar una cadena y %d para indicar un número.
+            Una vez establecida la cadena, se coloca de nuevo % para separar el 
+            texto de las variables que serán interpoladas
+                nombre = "Marcelo"
+                edad = 29
+                print("Mi nombre es %s y tengo %d años de edad." % (nombre, edad)) # Imprime: Mi nombre es Marcelo y tengo 29 años de edad.
+        -Métodos de cadenas integrados
+            string.upper(): regresa la cadena con todos los caracteres en mayúscula.
+            string.lower(): regresa la cadena con todos los caracteres en minúscula.
+            string.count(substring): regresa el número de recurrencias de una subcadena de una cadena.
+            string.split(caracter):regresa una lista de valores donde la cadena es dividida en el carácter especificado. En caso de no enviar el carácter, la división se hace en cada espacio.
+            string.find(substring): regresa el índice del comienzo de la primer recurrencia de la subcadena dentro de una cadena.
+            string.isalnum(): regresa un booleano dependiendo de si la longitud de la cadena es > 0 y todos los caracteres sean alfanuméricos (solo letras y números). Las cadenas que incluyen espacios y puntuación devolverán False con este método. Métodos similares incluyen .isalpha(), .isdigit(), .islower(), .isupper(),  entre otros. Todos devuelven booleanos.
+            string.join(lista): regresa una cadena que contiene todas las cadenas de nuestro conjunto (en este caso, una lista) concatenadas.
+            string.endswith(substring): regresa True o False si los últimos caracteres de la cadena coinciden con la subcadena.
+            (https://docs.python.org/es/3.13/library/stdtypes.html#text-sequence-type-str)
+-Listas
+    Una lista o arreglo (array en inglés), es una estructura de datos que permite 
+    guardar un conjunto de valores. Imagina que las listas son cajoneras, 
+    en donde cada cajón del mueble guarda cierta información.
+    Para definir una lista colocamos corchetes [ ], y dentro ingresamos los valores 
+    separados por comas. Las listas son dinámicas, es decir que podemos agregar o 
+    eliminar datos en el momento que necesitemos; también son mutables, 
+    es decir que sus elementos pueden ser modificados.
+            lista_vacia = []
+            lista_compras = ['tomate', 'pan', 'queso', 'jamón']
+            lista_especial = [1, 2, ['a', 'b', 'c'], True]
+    Si «sumas» dos listas, se creará una nueva lista que contiene todos los 
+    valores de ambas listas combinadas. De igual manera, si «multiplicas» una lista 
+    por un número entero, copiará todos los valores esa cantidad de veces y 
+    creará una nueva lista con todos los valores copiados
+            verso1 = ['dale', 'a', 'tu', 'cuerpo']
+            verso2 = ['alegria', 'macarena']
+            estrofa = verso1 + verso2
+            print(estrofa)
+            cancion = 3 * estrofa
+            print(cancion)
+     Cada cajón está representado por un número, al cual lo conocemos como índice; 
+     este sirve como dirección/posición única que apunta a cada ítem dentro del mueble. 
+            cajonera = ["pantalones", "camisetas", "calcetines"]
+            print(cajonera[0]) #Accedemos al cajón con índice 0. Imprime: "pantalones"
+            print(cajonera[1]) #Accedemos al cajón con índice 1. Imprime: "camisetas"
+            print(cajonera[2]) #Accedemos al cajón con índice 2. Imprime: "calcetines"
+            cajonera[1] = "sueters" #Cambiamos el valor del cajón con índice 1
+            print(cajonera) #Imprime: ['pantalones', 'sueters', 'calcetines']
+    Manipular Listas la función .append() podemos agregar elementos. 
+        Esta función agrega un nuevo elemento al final de la lista dada.
+            cajonera.append("vestidos") #Agregamos "vestidos" al final de la lista
+            print(cajonera) #Imprime: ['pantalones', 'sueters', 'calcetines', 'vestidos']
+    Slicing permite regresar una copia de parte de nuestra lista en base a 
+        índices específicos. La síntaxis utilizada es: [x:y], donde x es el 
+        índice inicial y y el índice final.
+            lista_grande = [2, 4, 6, 8, 10, 12, 14, 16]
+            print(lista_grande[3:]) #Imprime:[8, 10, 12, 14, 16]
+            print(lista_grande[:6]) #Imprime:[2, 4, 6, 8, 10, 12]
+            print(lista_grande[3:6]) #Imprime:[8, 10, 12]
+    Funciones integradas Pero, ¿a qué nos referimos con secuencia? 
+        Piensa en una secuencia como cualquier cosa sobre la que podamos recorrer
+        len(secuencia): Regresa la cantidad de elementos en la secuencia.
+            vocales = ['a', 'e', 'i', 'o', 'u']
+            print(len(vocales)) #Imprime: 5
+        Ejemplos de funciones para secuencias:
+            len(secuencia): devuelve la longitud (cantidad de elementos) de una secuencia.
+            max(secuencia): devuelve el valor más alto en una secuencia.
+            min(secuencia): devuelve el valor más bajo en una secuencia.
+            sorted(secuencia): devuelve una secuencia ordenada.
+            (https://docs.python.org/3.8/library/functions.html)
+    Métodos específicos de Listas {PREGUNTAR NORDI}
+        Los métodos que veremos a continuación son únicamente para listas y no podrán ser 
+        utilizados para otros tipos de datos. La sintaxis de estos métodos es colocar 
+        primero la lista, seguida de un punto y después el método
+            frozen = ["Elsa", "Anna", "Olaf"]
+            frozen.pop() #Sintaxis: nombre_lista.funcion()
+            print(frozen) #Imprime: ['Elsa', 'Anna']
+        Algunos métodos comunes para las listas son:
+            list.append(valor): añade un valor al final de la lista.
+            list.pop(índice): elimina un valor en la posición dada. Si no se pasa ningún parámetro, se eliminará el último valor en la lista.
+            list.index(valor): devuelve el índice (posición) del valor dado si existe en la lista y genera un error si no existe.
+            list.reverse(): invierte el orden de los elementos, en su lugar.*
+            list.sort(): ordena los elementos de menor a mayor, o alfabéticamente para cadenas.
+            (https://docs.python.org/3/tutorial/datastructures.html)
+-Tuplas
+    tuplas son inmutables, es decir que no pueden ser modificadas. 
+    Crear una tupla es tan sencillo como declarar distintos valores separados por comas;
+    opcionalmente podemos ponerlos entre los paréntesis ().
+            tupla_letras = ("a", "e", "i", "o", "u")
+            tupla_sin_parentesis = "a", "e", "i", "o", "u"
+    Las tuplas agrupan un conjunto de elementos que pueden contener cualquier tipo de dato.
+            gato = ("Miu", 5, "persa", False)
+    Recuerda que las tuplas son inmutables, por lo que al intentar cambiar el valor de 
+    algún índice obtendremos un TypeError:
+            gato[0] = "Michi" #ERROR: TypeError: 'tuple' object does not support item assignment
+    A pesar de esto, podemos agregar elementos a las tuplas o hacer slicing.
+            gato = gato + ("4.1",)
+            print(gato) #Imprime: ('Miu', 5, 'persa', False, '4.1')
+    Funciones integradas
+            len(secuencia): devuelve la longitud (cantidad de elementos) de una secuencia.
+            max(secuencia): devuelve el valor más alto en una secuencia.
+            min(secuencia): devuelve el valor más bajo en una secuencia.
+            sorted(secuencia): devuelve una secuencia ordenada.
+            sum(secuencia): devuelve la suma de los valores de la secuencia.
+            (https://docs.python.org/3/tutorial/datastructures.html#)
+    Tupla como valores return - Esta va a permitir agrupar más de un valor y devolverlos juntos.
+            def suma_multiplicacion(x, y):
+                suma = x + y
+                multiplicacion = x * y
+            return (suma, multiplicacion)
+-Diccionarios - permite almacenar contenido a través de una llave (o clave) y un valor, 
+    a estos pares les llamamos ítems o elementos 
+    Algunas características de los diccionarios son:
+        Son indexados, es decir que podemos acceder a sus datos a través de su índice (que en este caso llamaremos clave)
+        Son dinámicos y mutables, es decir que no tienen un tamaño definido y que de manera dinámica podemos agregar o quitar elementos y modificarlos. 
+        Pueden tener cualquier tipo de dato, es decir que dentro de mi diccionario pudiera yo tener una tupla, una lista, o inclusive otro diccionario.
+        Son colecciones desordenadas de objetos.
+    Crear Diccionarios
+    Las listas las inicializamos con corchetes: [ ], las tuplas las inicializamos con paréntesis: ( ), 
+    y ahora los diccionarios los serán con llaves: { }
+            estudiante = {"nombre": "Gonzalo", "curso": "Python"} #Notación Literal
+            paises = {} #Diccionario vacío
+            paises["MEX"] = "México" #Agregando valores
+            paises["COL"] = "Colombia"
+            paises["CHL"] = "Chile"
+    En el código anterior creamos dos diccionarios de distintas maneras:
+        Notación Literal: 
+        -Los pares de clave-valor se encapsulan en las llaves { }; cada par es separado por comas
+         siendo el primer texto la clave, seguida de dos puntos : y el valor de este. 
+         Por ejemplo: “nombre” representa la clave que corresponde al valor “Alfredo”.
+        -Crear diccionario vacío y agregar valores. Creamos un diccionario vacío colocando las llaves solamente. 
+         Para asignar valores colocamos el nombre de la variable y entre corchetes [ ] 
+         la clave seguida de la asignación del valor. Por ejemplo: 
+         paises[“MEX”] = “México”, donde el diccionario es paises, la clave es “MEX” y el valor asignado es “México”.
+    Acceder y modificar valores
+        Para acceder a los valores de un diccionario, puedes utilizar los corchetes [ ] junto con la clave para obtener el valor asignado.
+            print(estudiante["nombre"]) #Imprime: Gonzalo
+        Las claves establecidas son únicas. En caso de que se realice alguna asignación de una clave ya existente,
+        el valor pasado será sobreescrito por el nuevo valor.
+            estudiante["nombre"] = "Vicente"
+            print(estudiante["nombre"]) #Imprime: Vicente
+    Verificar la existencia de una clave
+        necesitaremos verificar si existe alguna clave en el diccionario para saber si estamos
+        agregando un valor inicial o bien reemplazando un valor existente.
+            if "CRI" in paises: #Preguntamos si existe la clave en el diccionario
+                print("¿Deseas reemplazar el valor?")
+            else: #No existe esa clave
+                paises["CRI"] = "Costa Rica"
+    Remover valores
+        Tenemos dos maneras de eliminar un elemento del diccionario:
+            valor_removido = paises.pop("MEX") #Elimina el elemento y devuelve su valor
+            del paises["COL"] #Elimina el elemento directamente (¡NO RECOMENDADO!)
+            print(paises) #Imprime: {'CHL': 'Chile'}
+    Sintaxis Multi-línea
+        Puedes escribir los pares de clave-valor de un diccionario en múltiples líneas para leerlo de una manera más fácil. Esto es muy útil sobre todo en diccionarios más largos. Por ejemplo el siguiente diccionario: 
+            pintor = { "nombre": "Frida Kahlo", "pais": "México", "fecha_nacimiento": "6 de julio de 1907"}
+        Puede ser escrito de esta manera:
+            pintor = {
+            "nombre": "Frida Kahlo",
+            "pais": "México",
+            "fecha_nacimiento": "6 de julio de 1907"
+            }
+    Diccionarios anidados
+        Como mencionamos anteriormente, los valores que podemos utilizar para los diccionarios
+        pueden contener listas, tuplas e inclusive otros diccionarios.
+            escuela = {
+            "nombre": "Coding Dojo LATAM",
+            "profesores": [
+                {"nombre": "Alfredo", "apellido": "Salazar", "cursos": ["Python", "Java"]},
+                {"nombre": "Valeria", "apellido": "Romero", "cursos": ["Fundamentos", "Java"]},
+                {"nombre": "Marcelo", "apellido": "Argotti", "cursos":["MERN", "Python"]}
+                ]
+            }
+    Funciones y métodos integrados
+        A continuación te presentamos algunas funciones que te serán de gran utilidad para los diccionarios:
+            len(diccionario): regresa el tamaño de un diccionario . 
+            str(diccionario): crea una representación de cadena (imprimible) de un diccionario. 
+            type(diccionario): regresa el tipo de la variable. Si la variable es un diccionario, devolverá un tipo de dict. 
+        Veamos también algunos métodos de los diccionarios. La sintaxis puede ser dict.method(tu_diccionario) o tu_diccionario.method(), donde method es el método a utilizar.
+            .clear(): elimina todos los elementos del diccionario 
+            .copy(): regresa una copia del diccionario
+            .get(clave, default=None): regresa el valor establecido para una clave o None si la clave no se encuentra en el diccionario. 
+            .has_key(clave): regresa verdadero (True) si la clave proporcionada está disponible en el diccionario; de lo contrario, devuelve False. 
+            .items(): regresa una lista de pares de tuplas (clave, valor) del diccionario. 
+            .keys(): regresa una lista de claves de diccionario. 
+            .update(pares_actualizar): agrega y actualiza los pares clave-valor del diccionario enviado al diccionario existente. 
+            .values(): regresa una lista de valores del diccionario. 
+            (https://www.w3schools.com/python/python_ref_dictionary.asp)
+Aplicación de Listas, Tuplas y Diccionarios en Ciencia de Datos
+    Listas
+        En ciencia de datos, las listas se utilizan frecuentemente para almacenar series de datos. 
+        Por ejemplo, podrías tener una lista que almacena una serie de temperaturas diarias.
+            # Lista de temperaturas diarias
+            temperaturas = [22.5, 21.0, 23.3, 25.2, 24.5]
+            media_temperatura = sum(temperaturas) / len(temperaturas)
+            print("Temperatura media:", media_temperatura)
+        Puedes calcular la temperatura media utilizando la función sum y len.
+    Tuplas
+        Las tuplas se usan comúnmente para almacenar datos que no deben cambiar, como coordenadas geográficas o dimensiones de un objeto. También son útiles cuando necesitas devolver múltiples valores desde una función.
+            # Coordenadas geográficas de una ubicación
+            coordenadas = (19.4326, -99.1332)  # Latitud y longitud de Ciudad de México
+            def calcular_distancia(coord1, coord2):
+                # Implementación ficticia para calcular la distancia
+                distancia = 10  # Solo un valor de ejemplo
+                return distancia
+            distancia = calcular_distancia(coordenadas, (34.0522, -118.2437))
+            print("Distancia:", distancia)
+    Diccionarios
+        En ciencia de datos, los diccionarios se usan ampliamente para manipular y almacenar datos estructurados. 
+        Por ejemplo, podrías tener un diccionario que almacena información sobre un conjunto de datos.
+            # Diccionario con información sobre un conjunto de datos
+            dataset_info = {
+                "nombre": "Datos de ventas",
+                "columnas": ["fecha", "producto", "cantidad", "precio"],(clave, valor)
+                "filas": 1000,
+                "fuente": "Sistema de ventas interno"
+            }
+            print("Nombre del conjunto de datos:", dataset_info["nombre"])
+            print("Número de filas:", dataset_info["filas"])
+-Condicionales
+    Una sentencia condicional es una estructura de control de flujo que nos permite ejecutar distintos bloques de 
+    código dependiendo de si una condición es verdadera o falsa. En Python, las palabras clave para estas sentencias 
+    son: if, elif y else.
+        num = 15
+        if num > 20:
+            print("Número mayor a 20")
+        else:
+            print("Número menor a 20")
+        '''
+        La variable num es menor a 20, por lo que el bloque de código de else será ejecutado.
+        Es decir que vamos a imprimir "Número menor a 20"
+        '''
+        num = 101
+        if num > 50:
+            print("Número mayor a 50")
+        elif num > 100:
+            print("Número mayor a 100")
+        else:
+            print("Número menor a 10")
+        '''
+        A pesar de que num es mayor que 50 y 100, la primera condicional que se cumpla es la única que se ejecutará.
+        Es por eso que solo imprimirá: "Número mayor a 50"
+        '''
+        if num < 60:
+            print("Número menor a 50")
+        #No se cumple con la condicional, por lo que no se ejecuta el bloque de código
+-Bucles 
+    Un bucle es una estructura de control de flujo que nos permite repetir la ejecución de un 
+    bloque de código varias veces, siempre y cuando se cumpla una condicional.
+    Bucles for con range
+        función range de Python con la sentencia for para repetir el mismo código cierta cantidad de veces. 
+        La función range() puede tener entre 1 y 3 argumentos y en base a esto crea una secuencia de números enteros.
+        Este suele ser utilizado para crear bucles que tienen un punto de inicio definido y un punto de 
+        parada para una secuencia de números.
+    Range con 1 argumento
+        La secuencia de números comienza en 0 por default; el bucle se detiene cuando llega al fin, 
+        es decir al argumento enviado a range (pero excluye ese número); cada iteración aumenta en secuencia 1 por default. 
+        Veamos el resultado del código
+            for i in range(4):
+                print(i)
+        resultado:
+                0
+                1
+                2
+                3
+    Range con 2 argumentos
+        La secuencia de números comienza en 2 (el primer argumento); el bucle se detiene cuando llega al fin 
+        (segundo argumento, excluyéndolo); cada iteración aumenta en secuencia 1 por default. 
+        Veamos el resultado del código
+            for i in range(2, 8):
+                print(i)
+        resultado:
+                2
+                3
+                4
+                5
+                6
+                7
+    Range con 3 argumentos
+        La secuencia de números comienza en 2 (el primer argumento); el bucle se detiene cuando llega al fin 
+        (segundo argumento, excluyéndolo); cada iteración aumenta en secuencia 3 (tercer argumento). 
+        Veamos el resultado del código
+            for i in range(2, 10, 3):
+                print(i)
+        resultado:
+                2
+                5
+                8
+    Recorrer cadenas con bucles for
+        Los bucles pueden ser utilizados para recorrer cualquier secuencia en Python. 
+        Gracias a esto podemos iterar cada valor de una cadena a través de un for.
+            for letra in 'Python':
+                print(letra)
+            #Imprime: 'P', 'y', 't', 'h', 'o', 'n'
+    Recorrer listas con bucles for
+        Para recorrer una lista podemos hacerlo de dos maneras distintas. En caso de necesitar los índices, 
+        podemos usar la función range y enviar como parámetro la longitud de la lista.
+        En caso de solo necesitar los valores, podemos directamente hacer el recorrido de la lista.
+            lista = ['brócoli', 'pepino', 'pimiento']
+            for i in range( len(lista) ):
+                print(i, lista[i])
+            #Imprime: 0 brócoli, 1 pepino, 2 pimiento
+            for verdura in lista:
+                print(verdura)
+            #Imprime: brócoli, pepino, pimiento
+    Recorrer tuplas con bucles for
+        Los diccionarios también pueden ser recorridos. Al hacer la iteración a través de un diccionario, 
+        el iterador es cada una de las claves establecidas en el diccionario.
+            estudiante = {"nombre": "Gonzalo", "curso": "Python"}
+            for clave in estudiante:*
+                print(clave)
+            #Imprime: nombre, curso
+            estudiante = {"nombre": "Gonzalo", "curso": "Python"}
+            for clave in estudiante:
+                print(estudiante[clave])
+            #Imprime: Gonzalo, Python
+    Bucles While
+        La sentencia while es otra manera en la que podemos crear un bucle; esta va a ser repetida mientras 
+        (while en inglés) se cumpla con la condicional dada.
+            while condicion:
+            #Código que se ejecuta mientras la condición se cumpla
+        Veamos el siguiente ejemplo:
+            num = 0
+            while num < 4:
+                print("bucle while -", num)
+            num += 1
+            #Imprime: bucle while - 0, bucle while - 1, bucle while - 2, bucle while - 3
+        Es importante notar que el bloque de código ejecutado debe de afectar a la condición colocada en el while, 
+        ya que de lo contrario podemos caer en un bucle infinito. 
+    else
+        Todos los bucles while incluyen una condición, pero ¿qué sucede si la condicional no se cumple 
+        y aún queremos ejecutar algo? En estas ocasiones utilizaremos la sentencia else con el bucle.
+            num = 0
+            while num < 4:
+                print("bucle while -", num)
+            num += 1
+            else:
+                print("Acabamos de salir del bucle")
+    Break
+        La sentencia break termina de forma definitiva el bucle y continúa con la primera 
+        sentencia después del bucle. El break se puede utilizar tanto para bucles for como para while.
+            for letra in "detente":
+                if letra == "n":
+                    break
+                print(letra)
+            #Imprime: d, e, t, e
+    Continue
+        La sentencia continue regresa el control al comienzo del bucle; de alguna manera a través de .
+        continue podemos “saltar” todas las sentencias restantes en la iteración actual del bucle y 
+        después continúa de manera normal.
+            for letra in "detente":
+                if letra == "n":
+                    continue
+                print(letra)
+            #Imprime: d, e, t, e, t, e
+-Funciones
+    Una función es un conjunto de acciones que forman parte de un bloque de código y 
+    que al ser invocada o llamada ejecuta una serie de instrucciones en el programa. 
+    Esta puede ser ejecutada en cualquier momento, la cantidad de veces que necesitemos
+        Algunas características de las funciones son:
+            Tienen un nombre
+            Aceptan parámetros (se colocan entre paréntesis pero son opcionales)
+            Ejecutan una serie de instrucciones
+            Regresan algo (regresan None en caso de no existir una sentencia return)
+        Pensemos en las funciones como si fueran recetas de cocina. Si quisiera preparar una receta:
+            Establecería los ingredientes (variables y valores) necesarios para la receta
+            Obtendría los ingredientes (enviar argumentos) para comenzar la receta (llamar a la función)
+            Ejecutaría paso a paso las instrucciones (ejecutar la función) con los ingredientes proporcionados (recibir los parámetros) y prepararíamos la comida.
+            Una vez realizados todos los pasos, la comida que se realizó con la receta está lista para servirse (return)
+        Entre las ventajas más importantes de las funciones tenemos:
+            Reducción de código duplicado
+            Desglose de problemas complejos en problemas pequeños más simples
+            Mejoría en la claridad y legibilidad del código
+    Sintaxis
+        A través de la palabra reservada def, del diminutivo define que en español significa definir,  
+        declaramos una función. Esto indicará que el código siguiente pertenece a una función y podremos 
+        asignarle un nombre para poder invocarla después. Los parámetros se colocan entre paréntesis ( ), 
+        y son entradas que una función espera y que podrán ser utilizadas dentro de la función.
+            def multiplicacion(num1, num2): #definimos la función multiplación con los parámetros num1 y num2
+                resultado = num1 * num2     #instrucciones dentro de la función
+                return resultado            #regresamos valor de resultado
+        En el código anterior creamos la función con la palabra reservada def y la nombramos multiplicacion,
+        declarando que necesita dos parámetros de entrada. Algo importante es que la función no será ejecutada 
+        sino hasta que se invoque o llame. Esto lo hacemos colocando el nombre de la función seguido de paréntesis ( ).
+        En caso de que la función lo requiera, como es el caso aquí, entre los paréntesis enviaremos los argumentos 
+        que la función espera como entrada.
+            resultado_multiplicacion = multiplicacion(5, 5) #Llamado a la función con argumentos 5 y 5
+            rint(resultado_multiplicacion) #Se guarda en la variable el resultado que la función regresó. Imprime: 25
+        Tanto los parámetros que se reciben, como la salida que pudiera generarse, son opcionales y 
+        van a depender de la función que estemos desarrollando. Van a existir funciones que no necesitan 
+        parámetros, van a existir funciones que no regresan nada. Aún con esto, el código dentro de la función 
+        puede alterar por completo nuestro programa, a esto se le llama efecto secundario.
+    Parámetros y Argumentos
+        Los parámetros son las entradas que tendremos ante nuestra función. Las funciones pueden tener tantos 
+        parámetros como se necesite, incluso pueden no tener parámetros de entrada
+                def buenos_dias(nombre):
+                    print("Buenos días "+nombre)
+        Una vez definida la función, podemos invocarla llamándola por su nombre y enviando la cantidad de argumentos requeridos
+                buenos_dias("alegría")
+                buenos_dias("al amor")
+                buenos_dias("a la vida")
+                buenos_dias("señor Sol")
+        Hemos utilizado dos términos distintos para hablar de los valores de una función: parámetros y argumentos, 
+        pero ¿cuál es la diferencia entre ambos? En el ejemplo anterior: nombre es un parámetro, es lo que mi función 
+        recibe; mientras que “alegría”, “al amor”, “a la vida”, “señor Sol” son argumentos, es lo que enviamos 
+        a nuestra función. Definimos y recibimos parámetros para nuestra función; pasamos argumentos hacia nuestra función.
+    Devolución de valores
+        En el ejemplo que vimos hace un momento, ejecutamos la función pero no recibimos (fuera de la función) 
+        nada de la función. En muchas ocasiones para nuestro desarrollo necesitaremos que dicha función nos regrese 
+        algún tipo de valor para poder ser utilizado más adelante en nuestro desarrollo. Para esto utilizaremos 
+        la sentencia return, esta me va a permitir devolver un valor ante la llamada a mi función.
+        Esto va a significar que la llamada a una función será igual a lo que dicha función regrese. ¡Veámoslo trabajar!
+            Intentemos hacer algunos cambios para la función buenos_dias:
+                def buenos_dias(nombre):
+                    return "Buenos días "+nombre
+                #El valor de retorno de la función es "Buenos días Python", por lo que el valor de mi variable frase será ese
+                frase = buenos_dias("Python")
+                    print(frase) #Imprime: Buenos días Python
+        Las funciones pueden devolver cualquier tipo de datos: cadenas, números, listas, tuplas, 
+        diccionarios inclusive otras funciones.
+    Parámetros por defecto y argumentos de palabras clave
+        permitir que algunos de los parámetros no fueran obligatorios, podemos establecer un valor por defecto a estos
+        la función que creamos previamente buenos_dias, donde recibiremos un nombre y la cantidad de veces que 
+        queremos que se repita la frase. En caso de que no se proporcione el nombre tomará el valor de “alegría”, 
+        en caso de que no se proporcione la cantidad tomará el valor de 1.
+                def buenos_dias(nombre = "alegría", cantidad=1):
+                    print(("Buenos días " + nombre) * cantidad)
+                buenos_dias()           #Imprime: "Buenos días alegría" una sola vez
+                buenos_dias("al amor")  #Imprime: "Buenos días al amor" una sola vez
+                buenos_dias(nombre="a la vida")  #Imprime: "Buenos días a la vida" una sola vez
+                buenos_dias(cantidad=3)  #Imprime: "Buenos días alegría" 3 veces
+                buenos_dias(nombre="señor Sol", cantidad=2)  #Imprime: "Buenos días señor Sol" 2 veces
+                #El orden de los argumentos no importa siempre y cuando especifiquemos el parámetro
+        ¿Qué podemos observar ante el ejemplo anterior?
+            Si no se proporcionan argumentos, se utilizan los valor por defecto
+            Si se proporciona un solo argumento sin establecer el nombre, el valor proporcionado 
+                se utiliza para el primer parámetro, y se utiliza el valor por defecto del segundo parámetro
+            Si se proporciona un solo argumento estableciendo el nombre, el valor proporcionado se 
+                utiliza para el parámetro con el mismo nombre y se usa el valor por defecto del otro parámetro
+            Si se proporcionan dos argumentos, ambos sin nombre establecido, los valores serán asignados a los 
+                parámetros en ese orden
+            Si se proporcionan dos argumentos, ambos con nombre establecido, los valores se asignarán al 
+                parámetro asociado (sin importar el orden).
+    

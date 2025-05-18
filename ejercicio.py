@@ -1,0 +1,60 @@
+# Carga de Datos
+ventas = [
+    {"fecha": "2024-01-01", "producto": "Laptop", "cantidad": 2, "precio": 12000},
+    {"fecha": "2024-01-01", "producto": "Mouse", "cantidad": 5, "precio": 250},
+    {"fecha": "2024-01-02", "producto": "Laptop", "cantidad": 1, "precio": 11500},
+    {"fecha": "2024-01-02", "producto": "Teclado", "cantidad": 3, "precio": 450},
+    {"fecha": "2024-01-03", "producto": "Mouse", "cantidad": 2, "precio": 270},
+    {"fecha": "2024-01-03", "producto": "Laptop", "cantidad": 1, "precio": 11800},
+]
+
+# Cálculo de Ingresos Totales
+ingresos_totales = 0
+for venta in ventas:
+    ingresos_totales += venta["cantidad"] * venta["precio"]
+print("Ingresos totales:", ingresos_totales)
+
+# Análisis del Producto Más Vendido
+ventas_por_producto = {}
+for venta in ventas:
+    producto = venta["producto"]
+    ventas_por_producto[producto] = ventas_por_producto.get(producto, 0) + venta["cantidad"]
+
+producto_mas_vendido = max(ventas_por_producto, key=ventas_por_producto.get)
+print("Producto más vendido:", producto_mas_vendido)
+
+# Promedio de Precio por Producto
+precios_por_producto = {}
+for venta in ventas:
+    producto = venta["producto"]
+    suma_precios, total_unidades = precios_por_producto.get(producto, (0.0, 0))
+    precios_por_producto[producto] = (suma_precios + venta["precio"] * venta["cantidad"], total_unidades + venta["cantidad"])
+
+precios_promedio = {}
+for producto, (suma_precios, total_unidades) in precios_por_producto.items():
+    precios_promedio[producto] = suma_precios / total_unidades if total_unidades > 0 else 0
+    print(f"Precio promedio de {producto}: {precios_promedio[producto]:.2f}")
+
+# Ventas por Día
+ingresos_por_dia = {}
+for venta in ventas:
+    fecha = venta["fecha"]
+    ingresos = venta["cantidad"] * venta["precio"]
+    ingresos_por_dia[fecha] = ingresos_por_dia.get(fecha, 0) + ingresos
+print("Ingresos por día:", ingresos_por_dia)
+
+# Representación de Datos
+resumen_ventas = {}
+for producto in ventas_por_producto:
+    cantidad_total = ventas_por_producto[producto]
+    ingresos_totales_producto = precios_por_producto[producto][0]
+    precio_promedio = precios_promedio[producto]
+    resumen_ventas[producto] = {
+        "cantidad_total": cantidad_total,
+        "ingresos_totales": ingresos_totales_producto,
+        "precio_promedio": precio_promedio
+    }
+
+print("Resumen de ventas:")
+for producto, resumen in resumen_ventas.items():
+    print(f"{producto}: {resumen}")
